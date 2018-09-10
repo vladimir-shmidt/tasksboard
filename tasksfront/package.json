@@ -1,0 +1,16 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@angular/cli": "^6.1.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ng": "ng"
+  },
+  "author": "",
+  "license": "ISC"
+}
