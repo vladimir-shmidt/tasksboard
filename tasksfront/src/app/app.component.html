@@ -1,12 +1,17 @@
 <ngb-tabset>
   <ngb-tab title="Add New Task">
     <ng-template ngbTabContent>
-      <app-new></app-new>
+      <app-newtask></app-newtask>
     </ng-template>
   </ngb-tab>
   <ngb-tab title="Task List">
     <ng-template ngbTabContent>
-      <app-list></app-list>
+      <div class="row">
+        <app-tasklist></app-tasklist>
+      </div>
+      <div class="row">
+        <app-currenttask></app-currenttask>
+      </div>
     </ng-template>
   </ngb-tab>
   <ngb-tab title="User Settings" [disabled]="true">
