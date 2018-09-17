@@ -1,3 +1,7 @@
-<p>
-  currenttask works!
+<p *ngIf="task != null">
+  {{task.Name}}
+  {{task.Description}}
+</p>
+<p *ngIf="task == null">
+  empty
 </p>
