@@ -4,7 +4,6 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 
-import {NgbTabset, NgbTab, NgbTabContent, NgbTabTitle} from '@ng-bootstrap/ng-bootstrap';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -14,10 +13,6 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     BrowserModule,
-    NgbTabset,
-    NgbTab,
-    NgbTabContent,
-    NgbTabTitle,
     NgbModule,
   ],
   providers: [],
