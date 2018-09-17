@@ -5,10 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent implements OnInit {
-  tabs: [1, 2, 3];
-
+export class BoardComponent implements OnInit {  
+  tabs;
   constructor() {
+    this.tabs = [1,2,3];
   }
 
   ngOnInit() {
