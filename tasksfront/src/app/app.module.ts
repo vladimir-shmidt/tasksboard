@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TasksListComponent } from './taskslist/taskslist.component';
 import { NewTaskComponent } from './newtask/newtask.component';
 import { CurrentTaskComponent } from './currenttask/currenttask.component';
