@@ -2,3 +2,8 @@
 
 @import 'app/app.component.css';
 @import 'app/board//board.component.css';
+
+body { 
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
