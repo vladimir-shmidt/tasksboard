@@ -8,6 +8,8 @@ import { TasksListComponent } from './taskslist/taskslist.component';
 import { NewTaskComponent } from './newtask/newtask.component';
 import { CurrentTaskComponent } from './currenttask/currenttask.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,6 +20,7 @@ import { CurrentTaskComponent } from './currenttask/currenttask.component';
   imports: [
     BrowserModule,
     NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

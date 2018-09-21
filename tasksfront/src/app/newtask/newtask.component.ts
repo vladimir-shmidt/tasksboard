@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../task';
+import { Task, Status } from '../task';
 
 @Component({
   selector: 'app-newtask',
@@ -7,7 +7,11 @@ import { Task } from '../task';
   styleUrls: ['./newtask.component.css']
 })
 export class NewTaskComponent implements OnInit {
-  task: Task;
+  Name: string;
+  Description: string;
+  Priority: number;
+  Status: Status;
+  Timespan: Date;
   
   constructor() { }
 
