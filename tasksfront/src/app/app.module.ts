@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TasksListComponent } from './taskslist/taskslist.component';
 import { NewTaskComponent } from './newtask/newtask.component';
 import { CurrentTaskComponent } from './currenttask/currenttask.component';
-
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -20,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    NgxDatatableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

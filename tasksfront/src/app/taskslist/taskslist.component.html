@@ -1,3 +1,8 @@
-<p>
-  taskslist works!
-</p>
+<ngx-datatable class="bootstrap"
+  [rows]="rows"
+  [columns]="columns"
+  selectionType="single"  
+  [rowHeight]="'auto'"
+  (select)='onSelect($event)'
+>
+</ngx-datatable>
