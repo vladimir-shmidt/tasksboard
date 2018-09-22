@@ -10,7 +10,7 @@ import { CurrentTaskComponent } from './currenttask/currenttask.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule } from '@angular/forms';
 import { TaskSelectedService } from './TaskSelectedService';
-
+import { AppRoutingModule } from './app-routing/app-routing.module'
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +23,7 @@ import { TaskSelectedService } from './TaskSelectedService';
     NgbModule,
     FormsModule,
     NgxDatatableModule,
+    AppRoutingModule,
   ],
   providers:[TaskSelectedService],
   bootstrap: [AppComponent]
