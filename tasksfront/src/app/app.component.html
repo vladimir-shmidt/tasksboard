@@ -1,5 +1,5 @@
-<ngb-tabset>
-  <ngb-tab>
+<ngb-tabset [(activeId)]="activeTab">
+  <ngb-tab id="newtask">
     <ng-template ngbTabTitle><a routerLink="newtask">Add New Task</a></ng-template>
     <ng-template ngbTabContent>
       <div class="row">
@@ -7,7 +7,7 @@
       </div>
     </ng-template>
   </ngb-tab>
-  <ngb-tab>
+  <ngb-tab id="tasks">
     <ng-template ngbTabTitle><a routerLink="tasks">Task List</a></ng-template>
     <ng-template ngbTabContent>
       <div class="row">
