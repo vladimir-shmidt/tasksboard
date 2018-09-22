@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
+import { TaskSelectedService } from '../TaskSelectedService';
 
 @Component({
   selector: 'app-taskslist',
@@ -9,22 +10,23 @@ import { Task } from '../task';
 export class TasksListComponent implements OnInit {
   tasks: Task[] = [];
   rows = [
-    { name: 'Austin', gender: 'Male', company: 'Swimlane' },
-    { name: 'Dany', gender: 'Male', company: 'KFC' },
-    { name: 'Molly', gender: 'Female', company: 'Burger King' },
+    { Name: "1", Description: "One", Priority: 1, Timespan: Date.now()},
+    { Name: "2", Description: "Two", Priority: 2, Timespan: Date.now()},
+    { Name: "3", Description: "Three", Priority: 1, Timespan: Date.now()},
   ];
   columns = [
-    { prop: 'name' },
-    { name: 'Gender' },
-    { name: 'Company' }
+    { prop: 'Name' },
+    { prop: 'Description' },
+    { prop: 'Priority' },
+    { prop: 'Timespan' }
   ];
 
-  constructor() { }
+  constructor(private service: TaskSelectedService){ }
 
   ngOnInit() {
   }
 
   onSelect({ selected }) {
-    console.log('Select Event',   );
+    this.service.selectTask(selected[0]);
   }
 }

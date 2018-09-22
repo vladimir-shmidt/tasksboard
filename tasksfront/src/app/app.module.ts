@@ -9,6 +9,7 @@ import { NewTaskComponent } from './newtask/newtask.component';
 import { CurrentTaskComponent } from './currenttask/currenttask.component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { FormsModule } from '@angular/forms';
+import { TaskSelectedService } from './TaskSelectedService';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NgxDatatableModule,
   ],
-  providers: [],
+  providers:[TaskSelectedService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
