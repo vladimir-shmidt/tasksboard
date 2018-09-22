@@ -10,15 +10,16 @@ import { TaskSelectedService } from '../TaskSelectedService';
 export class TasksListComponent implements OnInit {
   tasks: Task[] = [];
   rows = [
-    { Name: "1", Description: "One", Priority: 1, Timespan: Date.now()},
+    { Name: "1", Description: "One", Priority: 1, Timespan: Date.now(), Status: 'Active'},
     { Name: "2", Description: "Two", Priority: 2, Timespan: Date.now()},
     { Name: "3", Description: "Three", Priority: 1, Timespan: Date.now()},
   ];
   columns = [
     { prop: 'Name' },
-    { prop: 'Description' },
     { prop: 'Priority' },
-    { prop: 'Timespan' }
+    { prop: 'Created', name: 'Added' },
+    { prop: 'Timespan' },
+    { prop: 'Status' }
   ];
 
   constructor(private service: TaskSelectedService){ }

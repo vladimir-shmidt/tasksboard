@@ -4,6 +4,7 @@ export class Task {
     Priority: number;
     Status: Status;
     Timespan: Date;
+    Created: Date;
 }
 
 export enum Status {
