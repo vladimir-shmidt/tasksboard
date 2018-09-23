@@ -22,5 +22,10 @@
       (select)='onSelect($event)'
     >
     </ngx-datatable>
+
+    <ng-template #editTmpl let-row="row" let-value="value">
+        <button *ngIf="value == 'Active'" type="button" class="btn btn-light">Complete</button>
+        <button *ngIf="value == 'Complete'" type="button" class="btn btn-light">Remove</button>
+    </ng-template>
   </div>
 </div>
