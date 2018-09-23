@@ -6,6 +6,7 @@ import { Task, Status } from '../task';
   templateUrl: './newtask.component.html',
   styleUrls: ['./newtask.component.css']
 })
+
 export class NewTaskComponent implements OnInit {
   Name: string;
   Description: string;
@@ -17,5 +18,4 @@ export class NewTaskComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

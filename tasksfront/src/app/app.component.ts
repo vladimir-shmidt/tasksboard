@@ -7,11 +7,8 @@ import { Component, OnInit } from '@angular/core';
   
 })
 export class AppComponent implements OnInit {
-  activeTab: string;
-
   constructor() { }
   
   ngOnInit() {
-    this.activeTab = "tasks";
   }
 }

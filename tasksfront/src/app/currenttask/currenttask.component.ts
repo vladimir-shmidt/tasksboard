@@ -9,7 +9,7 @@ import { TaskSelectedService } from '../TaskSelectedService';
 })
 
 export class CurrentTaskComponent implements OnInit {
-  task: Task;
+  task: any;
 
   constructor(private service: TaskSelectedService) { }
 

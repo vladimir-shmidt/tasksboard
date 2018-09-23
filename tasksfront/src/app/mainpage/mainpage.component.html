@@ -1,0 +1,29 @@
+<ngb-tabset [(activeId)]="activeTab" (tabChange)="tabChanged($event)">
+    <ngb-tab id="newtask">
+      <ng-template ngbTabTitle><a routerLink="/newtask">Add New Task</a></ng-template>
+      <ng-template ngbTabContent>
+        <div class="row">
+          <app-newtask></app-newtask>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tasks">
+      <ng-template ngbTabTitle><a routerLink="/tasks">Task List</a></ng-template>
+      <ng-template ngbTabContent>
+        <div class="row">
+          <app-taskslist></app-taskslist>
+        </div>
+        <div class="row">
+          <br/>
+          <app-currenttask></app-currenttask>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab title="User Settings" [disabled]="true">
+      <ng-template ngbTabContent>
+        <p>TODO</p>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+  
+  

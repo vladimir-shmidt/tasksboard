@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../task';
 import { TaskSelectedService } from '../TaskSelectedService';
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-taskslist',
@@ -23,13 +23,14 @@ export class TasksListComponent implements OnInit {
     { prop: 'Status' }
   ];
 
-  constructor(private service: TaskSelectedService, private router: Router){ }
+  constructor(private router: Router, private service: TaskSelectedService){ }
 
   ngOnInit() {
   }
 
   onSelect({ selected }) {
-    this.service.selectTask(selected[0]);
-    this.router.navigate(['/task/'+selected[0].Id]);
+    let task = selected[0];
+    this.service.selectTask(task);
+    this.router.navigate(['/tasks', task.Id]);
   }
 }
