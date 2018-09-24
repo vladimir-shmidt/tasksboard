@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using TasksAPI.Models;
 using TasksAPI.Repository;
 
 namespace TasksAPI.Controllers
@@ -16,24 +17,29 @@ namespace TasksAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Models.Task>> Get([FromQuery]int page, [FromQuery]int size)
+        public ActionResult<IEnumerable<Task>> Get([FromQuery]int page, [FromQuery]int size)
         {
-            return Ok(_repository.GetTasks(page, size));
+            var paged = new PagedModel<Task>();
+            paged.Data = _repository.GetTasks(page, size);
+            paged.Page = page;
+            paged.Size = size;
+            paged.Total = _repository.Count();
+            return Ok(paged);
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Models.Task> Get([FromQuery]string id)
+        public ActionResult<Task> Get([FromQuery]string id)
         {
             return _repository.GetTaskById(id);
         }
 
         [HttpPost]
-        public void Post([FromBody]Models.Task task)
+        public ActionResult<Task> Post([FromBody]Task task)
         {
-            _repository.Create(task);
+            return _repository.Create(task);
         }
 
-        public void Put([FromBody]Models.Task task)
+        public void Put([FromBody]Task task)
         {
             _repository.Update(task);
         }

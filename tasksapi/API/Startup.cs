@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json.Serialization;
 using TasksAPI.Repository;
 
 namespace TasksAPI
@@ -25,7 +26,12 @@ namespace TasksAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc()
+                .AddJsonOptions(_ => {
+                    _.SerializerSettings.ContractResolver = new DefaultContractResolver();
+                    _.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSingleton<ITasksRepository, TasksRepository>();
         }
@@ -38,9 +44,9 @@ namespace TasksAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
-
             app.UseCors(_ => _.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
+
+            app.UseMvc();
         }
     }
 }

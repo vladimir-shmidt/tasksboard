@@ -19,7 +19,7 @@ namespace TasksAPI.Repository
 
         public IEnumerable<Models.Task> GetTasks(int page, int size)
         {
-            return _tasks.Values.Skip(size).Take(page);
+            return _tasks.Values.Skip(size * page).Take(size);
         }
 
         public Models.Task GetTaskById(string id)
@@ -30,6 +30,8 @@ namespace TasksAPI.Repository
         public Models.Task Create(Models.Task task)
         {
             task.Id = Interlocked.Increment(ref _counter).ToString();
+            task.Status = Models.Status.Active;
+            task.Created = DateTime.UtcNow;
             _tasks.TryAdd(task.Id, task);
             return task;
         }
@@ -47,6 +49,11 @@ namespace TasksAPI.Repository
         public void Remove(string id)
         {
             _tasks.Remove(id, out Models.Task task);
+        }
+
+        public int Count()
+        {
+            return _tasks.Count;
         }
     }
 

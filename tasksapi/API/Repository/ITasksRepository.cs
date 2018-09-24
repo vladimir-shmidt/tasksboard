@@ -10,5 +10,6 @@ namespace TasksAPI.Repository
         IEnumerable<Task> GetTasks(int page, int size);
         Task Update(Task task);
         void Remove(string id);
+        int Count();
     }
 }

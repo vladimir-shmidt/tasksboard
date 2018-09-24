@@ -10,7 +10,7 @@ namespace TasksAPI.Models
         public string Description { get; set; }
         public int Priority { get; set; }
         public Status Status { get; set; }
-        public TimeSpan Timespan { get; set; }
+        public DateTime Timespan { get; set; }
         public DateTime Created { get; set; }
 
         public bool Equals(Task x, Task y)
