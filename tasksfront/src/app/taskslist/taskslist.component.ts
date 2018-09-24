@@ -2,6 +2,7 @@ import { Component, TemplateRef, ViewChild, OnInit } from '@angular/core';
 import { Task } from '../task';
 import { TaskSelectedService } from '../TaskSelectedService';
 import { Router } from "@angular/router";
+import { TasksDataService } from '../TasksDataService';
 
 @Component({
   selector: 'app-taskslist',
@@ -15,25 +16,27 @@ export class TasksListComponent implements OnInit {
   rows = [];
   columns = [];
 
-  constructor(private router: Router, private service: TaskSelectedService){ }
+  constructor(private router: Router, private taskSelected: TaskSelectedService, private dataService: TasksDataService){ }
 
   ngOnInit() {
     this.columns = [{ prop: 'Name' },
-    { prop: 'Priority' },
-    { prop: 'Created', name: 'Added' },
-    { prop: 'Timespan' },
-    { prop: 'Status' },
-    { name: 'Actions', prop: 'Status',  cellTemplate: this.editTmpl }];
-    this.rows = [
-      { Id: "1", Name: "1", Description: "One", Priority: 1, Timespan: Date.now(), Status: 'Active'},
-      { Id: "2", Name: "2", Description: "Two", Priority: 2, Timespan: Date.now()},
-      { Id: "3", Name: "3", Description: "Three", Priority: 1, Timespan: Date.now()},
+      { prop: 'Priority' },
+      { prop: 'Created', name: 'Added' },
+      { prop: 'Timespan' },
+      { prop: 'Status' },
+      { name: 'Actions', prop: 'Status',  cellTemplate: this.editTmpl }
     ];
   }
 
   onSelect({ selected }) {
     let task = selected[0];
-    this.service.selectTask(task);
+    this.taskSelected.selectTask(task);
     this.router.navigate(['/tasks', task.Id]);
+  }
+
+  onRefresh() {
+    this.dataService.getTasks().subscribe(paged => {
+      this.rows = paged.Data
+    });
   }
 }

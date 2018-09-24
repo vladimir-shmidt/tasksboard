@@ -1,7 +1,7 @@
 <div class="card border-info mb-3" >
   <div class="card-header">Selected task</div>
   <div class="card-body" *ngIf="task != null">
-    <h5 class="card-title">Name: {{task.Name}}</h5>
+    <h5 class="card-title">Name: {{task.Name}} ({{task.Id}})</h5>
     <p class="card-text">Description: {{task.Description}}</p>
     <p>Status: {{task.Status}}</p>
     <p>Priority: {{task.Priority}}</p>

@@ -13,3 +13,15 @@ export enum Status {
     Active,
     Complete
 }
+
+export class PagedData<Task> {
+    Data: Task[];
+    Page: number;
+    Size: number;
+    Total: number;
+
+    private _length: number;
+    get length(): number {
+        return this.Data.length;
+    }
+}
