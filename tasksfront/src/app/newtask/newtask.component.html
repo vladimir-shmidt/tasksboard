@@ -13,7 +13,7 @@
 <div class="form-group">
   <label for="timespan">Timespan</label>
   <input type="datetime-local" [(ngModel)]="Timespan" class="form-control" id="timespan" aria-describedby="timespan" placeholder="Enter timespan" required>
-  <small id="timespanHelp" class="form-text text-muted">Time as full datetime to start coundown from</small>
+  <small id="timespanHelp" class="form-text text-muted">Time as full in future to start coundown to</small>
 </div>
 
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary"  (click)="create()">Submit</button>

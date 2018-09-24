@@ -10,6 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { TaskSelectedService } from './TaskSelectedService';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { MainpageComponent } from './mainpage/mainpage.component'
+import { TasksDataService } from './TasksDataService';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +28,10 @@ import { MainpageComponent } from './mainpage/mainpage.component'
     FormsModule,
     NgxDatatableModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpModule,
   ],
-  providers:[TaskSelectedService],
+  providers:[TaskSelectedService, TasksDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
