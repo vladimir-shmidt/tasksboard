@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { Task } from './task';
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'    
+})
 export class TaskSelectedService {
-    private messageSource = new ReplaySubject(1);
+    private messageSource = new ReplaySubject<Task>(1);
     currentTask = this.messageSource.asObservable();
     constructor() {}
 
