@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using TasksAPI.Repository;
 
@@ -30,6 +31,7 @@ namespace TasksAPI
                 .AddJsonOptions(_ => {
                     _.SerializerSettings.ContractResolver = new DefaultContractResolver();
                     _.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+                    _.SerializerSettings.DateTimeZoneHandling = DateTimeZoneHandling.Utc;
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
