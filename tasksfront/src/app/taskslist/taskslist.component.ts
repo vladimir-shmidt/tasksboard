@@ -3,6 +3,7 @@ import { Task } from '../task';
 import { TaskSelectedService } from '../TaskSelectedService';
 import { Router } from "@angular/router";
 import { TasksDataService } from '../TasksDataService';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-taskslist',
@@ -16,7 +17,9 @@ export class TasksListComponent implements OnInit {
   rows = [];
   columns = [];
 
-  constructor(private router: Router, private taskSelected: TaskSelectedService, private dataService: TasksDataService){ }
+  constructor(private router: Router, private taskSelected: TaskSelectedService, private dataService: TasksDataService, private location: Location) {
+    
+   }
 
   ngOnInit() {
     this.columns = [{ prop: 'Name' },
@@ -26,6 +29,8 @@ export class TasksListComponent implements OnInit {
       { prop: 'Status' },
       { name: 'Actions', prop: 'Status',  cellTemplate: this.editTmpl }
     ];
+
+    this.onRefresh();
   }
 
   onSelect({ selected }) {
