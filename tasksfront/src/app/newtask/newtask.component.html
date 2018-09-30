@@ -12,7 +12,8 @@
 </div>
 <div class="form-group">
   <label for="timespan">Timespan</label>
-  <input type="datetime-local" [(ngModel)]="Timespan" class="form-control" id="timespan" aria-describedby="timespan" placeholder="Enter timespan" required>
+  <input type="date" [(ngModel)]="Date" min="{{Today}}" class="form-control"  id="timespan" aria-describedby="timespan" placeholder="Enter timespan" required>
+  <ngb-timepicker [(ngModel)]="Time" [seconds]="true"></ngb-timepicker>
   <small id="timespanHelp" class="form-text text-muted">Time as full in future to start coundown to</small>
 </div>
 

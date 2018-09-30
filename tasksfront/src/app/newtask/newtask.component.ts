@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Task, Status } from '../task';
 import { TasksDataService } from '../TasksDataService';
+import { NgbTimeStruct } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-newtask',
@@ -12,11 +14,15 @@ export class NewTaskComponent implements OnInit {
   Name: string;
   Description: string;
   Priority: number;
-  Timespan: Date;
+  Date: Date = new Date();
+  Time: NgbTimeStruct = {hour: 0, minute: 5, second: 0};
+  Today: string;
   
   constructor(private service: TasksDataService) { }
 
   ngOnInit() {
+    let today = new Date();
+    this.Today = `${today.getFullYear()}-${today.getMonth() < 10 ? '0' + ( today.getMonth() + 1) : today.getMonth() + 1}-${today.getDate() < 10 ? '0' + today.getDate() : today.getDate()}`
   }
 
   create() {
@@ -24,7 +30,10 @@ export class NewTaskComponent implements OnInit {
     task.Name = this.Name;
     task.Description = this.Description;
     task.Priority = this.Priority;
-    task.Timespan = this.Timespan;
+    task.Timespan = new Date(this.Date);
+    task.Timespan.setHours(this.Time.hour);
+    task.Timespan.setMinutes(this.Time.minute);
+    task.Timespan.setSeconds(this.Time.second);
 
     this.service.addTask(task).subscribe(task => console.log(task));
   }
