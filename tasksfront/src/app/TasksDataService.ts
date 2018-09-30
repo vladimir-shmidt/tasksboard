@@ -16,7 +16,7 @@ export class TasksDataService {
     taskUrl: string;
 
     constructor(private http: HttpClient) {
-        this.taskUrl = 'http://localhost:49284'
+        this.taskUrl = 'http://localhost:5000'
      }
 
     getTasks(): Observable<PagedData<Task>> {
